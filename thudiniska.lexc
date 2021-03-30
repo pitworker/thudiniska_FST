@@ -9,48 +9,60 @@ Verb;
 
 LEXICON Noun
 
-long	Ninfl;
-tír	Ninfl;
-múr	Ninfl;
-bleð	Ninfl;
-báhrs	Ninfl;
-cáerang	Ninfl;
-ben	Ninfl;
-feme	Ninfl;
-bláþ	Ninfl;
-cnáim	Ninfl;
-kló	Ninfl;
-skorpu	Ninfl;
-cú	Ninfl;
+long    Ninfl;
+tír     Ninfl;
+múr     Ninfl;
+bleð    Ninfl;
+báhrs   Ninfl;
+cáerang Ninfl;
+ben     Ninfl;
+feme    Ninfl;
+bláþ    Ninfl;
+cnáim   Ninfl;
+kló     Ninfl;
+skorpu  Ninfl;
+cú      Ninfl;
 
 LEXICON Ninfl
 
-+SGNOM:0	#;
-+SGACC:0	#;
-+SGDAT:^i	#;
-+SGGEN:^s	#;
-+PLNOM:*	#;
-+PLACC:*	#;
-+PLDAT:^um	#;
-+PLGEN:^a	#; 
++SGNOM:0        #;
++SGACC:0        #;
++SGDAT:^i       #;
++SGGEN:^s       #;
++PLNOM:*        #;
++PLACC:*        #;
++PLDAT:^um      #;
++PLGEN:^a       #; 
 
 LEXICON Verb
 
-ata	Vinfl;
-tiga	Vinfl;
-dale	Vinfl;
-selge	Vinfl;
-biaða 	Vinfl;
-eþae	Vinfl;
-ako	Vinfl;
-légado	Vinfl;
-fáelae	Vinfl;
+ata     Vinfl;
+tiga    Vinfl;
+dale    Vinfl;
+selge   Vinfl;
+biaða   Vinfl;
+eþae    Vinfl;
+ako     Vinfl;
+légado  Vinfl;
+fáelae  Vinfl;
 
 LEXICON Vinfl
 
-+PRS1SG:0	#;
-+PRS2SG:^r	#;
-+PRS3SG:^d	#;
-+PRS1PL:~m	#;
-+PRS2PL:~ð	#;
-+PRS3PL:~	#;
++PRS1SG:0       #;
++PRS2SG:^r      #;
++PRS3SG:^d      #;
++PRS1PL:~m      #;
++PRS2PL:~ð      #;
++PRS3PL:~       #;
++PST1SG:^ð~     #;
++PST2SG:^ð~r    #;
++PST3SG:^ð~d    #;
++PST1PL:^ð-m    #;
++PST2PL:^ð~ð    #;
++PST3PL:^ð-     #;
++FUT1SG:^d~     #;
++FUT2SG:^d~r    #;
++FUT3SG:^d~d    #;
++FUT1PL:^d-m    #;
++FUT2PL:^d-ð    #;
++FUT3PL:^d-     #;
