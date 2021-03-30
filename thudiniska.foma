@@ -1,0 +1,48 @@
+### thudiniska.foma ###
+
+# natural classes
+
+define V [ a | e | i | o | u ] ;
+define D [ á | é | í | ó | ú | e u | i a ] ;
+define C [ b | c | d | ð | f | g | h | j | k | l | m | n | p | q | r | s | t | v | þ ] ;
+
+# vowel change: de-diphthongization, raising front vowels, fronting back vowels, and turning i to a
+# [ C | C C | [..] ]
+define VChange i a -> a || _ C* "*" ,,
+       	       e u -> i || _ C* "*" ,,
+	       á -> e || _ C* "*" ,,
+	       é -> i || _ C* "*" ,,
+	       í -> a || _ C* "*" ,,
+	       ó -> e || _ C* "*" ,,
+	       ú -> i || _ C* "*" ,,
+	       a -> e || _ C* "*" ,,
+	       e -> i || _ C* "*" ,,
+	       i -> a || _ C* "*" ,,
+	       o -> e || _ C* "*" ,,
+	       u -> i || _ C* "*" ;
+
+# r addition: adds an r on the occurance of two consecutive vowels. 
+
+define RAdd i -> r i || [ i | ú | é ] "^" _ ;
+
+# u drop: drops u in um suffix when word already ends in u.
+
+define UDrop u m -> m || [ u | á | í | ó ] "^" _ ;
+
+# vowel correction: correct the last vowel in a verb.
+
+define VCorrect [ a | e ] "~" -> u || _ [ m | .#. ] ,,
+       		[ a | e ] "~" -> i || _ ð ,,
+		o "~" -> u || _ [ m | .#. ] ,,
+		o "~" -> i || _ ð ;
+
+# cleanup: remove morpheme boundaries
+
+define Cleanup "^" -> 0 ,,
+       	       "*" -> 0 ;
+
+read lexc thudiniska.lexc
+define Lexicon
+define Grammar Lexicon .o. VChange .o. RAdd .o. UDrop .o. VCorrect .o. Cleanup ;
+
+regex Grammar ;
