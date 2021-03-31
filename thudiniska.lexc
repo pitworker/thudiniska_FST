@@ -1,12 +1,13 @@
 !!!thudiniska.lexc!!!
 
 Multichar_Symbols +SGNOM +SGACC +SGDAT +SGGEN +PLNOM +PLACC +PLDAT +PLGEN
-                  +PRS1SG +PRS2SG +PRS3SG +PRS1PL +PRS2PL +PRS3PL
-                  +PST1SG +PST2SG +PST3SG +PST1PL +PST2PL +PST3PL
-                  +FUT1SG +FUT2SG +FUT3SG +FUT1PL +FUT2PL +FUT3PL
-                  +IMP1SG +IMP2SG +IMP3SG +IMP1PL +IMP2PL +IMP3PL
+                  +PRS +PST +FUT +IMP
+                  +1SG +2SG +3SG +1PL +2PL +3PL
                   +ACTV +PASS +MIDL
-                  PST+ IPFV+ NEG+
+                  PSTFUT+ IPFV+ NEG+
+                  @P.PSTFUT.ON@ @D.PSTFUT@
+                  @P.IPFV.ON@ @D.IPFV@
+                  @P.SUBJ.ON@ @D.SUBJ@
 
 LEXICON Root
 
@@ -35,50 +36,63 @@ LEXICON Ninfl
 +SGNOM:0        #;
 +SGACC:0        #;
 +SGDAT:^i       #;
-+SGGEN:^s       #;
-+PLNOM:*        #;
-+PLACC:*        #;
++SGGEN:&sggen   #;
++PLNOM:&plnom   #;
++PLACC:&placc   #;
 +PLDAT:^um      #;
 +PLGEN:^a       #;
 
 LEXICON Verb
 
-ata     Vinfl;
-tiga    Vinfl;
-dale    Vinfl;
-selge   Vinfl;
-biaða   Vinfl;
-eþae    Vinfl;
-ako     Vinfl;
-légado  Vinfl;
-fáelae  Vinfl;
+ata     Vtense;
+tiga    Vtense;
+dale    Vtense;
+selge   Vtense;
+biaða   Vtense;
+eþae    Vtense;
+ako     Vtense;
+légado  Vtense;
+fáelae  Vtense;
 
-LEXICON Vinfl
+LEXICON Vtense
 
-+PRS1SG:0       Vsufx;
-+PRS2SG:^r      Vsufx;
-+PRS3SG:^d      Vsufx;
-+PRS1PL:~m      Vsufx;
-+PRS2PL:~ð      Vsufx;
-+PRS3PL:~       Vsufx;
-+PST1SG:^ð~     Vsufx;
-+PST2SG:^ð~r    Vsufx;
-+PST3SG:^ð~d    Vsufx;
-+PST1PL:^ð-m    Vsufx;
-+PST2PL:^ð~ð    Vsufx;
-+PST3PL:^ð-     Vsufx;
-+FUT1SG:^d~     Vsufx;
-+FUT2SG:^d~r    Vsufx;
-+FUT3SG:^d~d    Vsufx;
-+FUT1PL:^d-m    Vsufx;
-+FUT2PL:^d-ð    Vsufx;
-+FUT3PL:^d-     Vsufx;
-+IMP1SG:`       Vsufx;
-+IMP2SG:`r      Vsufx;
-+IMP3SG:`d      Vsufx;
-+IMP1PL:`~m     Vsufx;
-+IMP2PL:`~ð     Vsufx;
-+IMP3PL:`~      Vsufx;
+@D.PSTFUT@+PRS:@D.PSTFUT@0                 PRSprsn;
+@D.PSTFUT@+PST:@D.PSTFUT@0                 PSTprsn;
+@D.IPFV@+FUT:@D.IPFV@0                     FUTprsn;
+@D.PSTFUT@@D.IPFV@@D.SUBJ@+IMP:@D.PSTFUT@@D.IPFV@@D.SUBJ@0 IMPprsn;
+
+LEXICON PRSprsn
+
++1SG:0       Vsufx;
++2SG:^r      Vsufx;
++3SG:^d      Vsufx;
++1PL:~m      Vsufx;
++2PL:~ð      Vsufx;
++3PL:~       Vsufx;
+
+LEXICON PSTprsn
++1SG:^ð~     Vsufx;
++2SG:^ð~r    Vsufx;
++3SG:^ð~d    Vsufx;
++1PL:^ð-m    Vsufx;
++2PL:^ð~ð    Vsufx;
++3PL:^ð-     Vsufx;
+
+LEXICON FUTprsn
++1SG:^d~     Vsufx;
++2SG:^d~r    Vsufx;
++3SG:^d~d    Vsufx;
++1PL:^d-m    Vsufx;
++2PL:^d-ð    Vsufx;
++3PL:^d-     Vsufx;
+
+LEXICON IMPprsn
++1SG:`       Vsufx;
++2SG:`r      Vsufx;
++3SG:`d      Vsufx;
++1PL:`~m     Vsufx;
++2PL:`~ð     Vsufx;
++3PL:`~      Vsufx;
 
 LEXICON Vsufx
 
@@ -88,7 +102,7 @@ LEXICON Vsufx
 
 LEXICON Vprfx
 
-PST+:gu^        Verb;
-IPFV+:fu^       Verb;
+@P.PSTFUT.ON@PSTFUT+:@P.PSTFUT.ON@gu^     Verb;
+@P.IPFV.ON@IPFV+:@P.IPFV.ON@fu^       Verb;
 NEG+:nu^        Verb;
-SUBJ+:ru^       Verb;
+@P.SUBJ.ON@SUBJ+:@P.SUBJ.ON@ru^       Verb;

@@ -5,6 +5,17 @@
 define V [ a | e | i | o | u ] ;
 define D [ á | é | í | ó | ú | e u | i a ] ;
 define C [ b | c | d | ð | f | g | h | j | k | l | m | n | p | q | r | s | t | v | þ ] ;
+define M [ í [ r | l | 0 ] | u [ r | l | 0 ] | o [ r | l | 0 ] | á [ r | l | 0 ] | ó [ r | l | 0 ] | n | m | þ | ð ] ;
+define F [ a [ r | l | 0 ] | ú [ r | l | 0 ] | e [ r | l | 0 ] | i [ r | l | 0 ] | é [ r | l | 0 ] | c | q ] ;
+define N [ n g | s | k | g | t | d | p | b ] ;
+define X [ "@D.PSTFUT@" | "@D.IPFV@" | "@D.SUBJ@" ] ;
+
+# gender adjust: adjusts the ending of the word based on the gender
+
+define GAdj "&" s g g e n -> "^" s || [ M | N ] _ ,,
+            "&" s g g e n -> "^" a r || F _ ,,
+            "&" [ p l n o m | p l a c c ] -> "*" || [ M | N ] _ ,,
+            "&" [ p l n o m | p l a c c ] -> "^" i r || F _ ;
 
 # vowel change: de-diphthongization, raising front vowels, fronting back vowels, and turning i to a
 # [ C | C C | [..] ]
@@ -23,33 +34,38 @@ define VChange i a -> a || _ C* "*" ,,
 
 # r addition: adds an r on the occurance of two consecutive vowels.
 
-define RAdd i -> r i || [ i | ú | é ] "^" _ ;
+define RAdd i -> r i || [ i | ú | é ] "^" _ ,,
+            a -> r a || a "^" _ ;
 
 # u drop: drops u in um suffix when word already ends in u.
 
 define UDrop u m -> m || [ u | á | í | ó ] "^" _ ;
 
+# i add: adds an i when two consecutive final s's.
+
+define IAdd s -> i s || s "^" _ .#. ;
+
 # vowel correction: correct the last vowel in a verb.
 
-define VCorrect [ a | e ] "~" -> u || _ [ m | .#. | "^" ] ,,
-                [ a | e ] "~" -> i || _ ð ,,
-                o "~" -> i || _ [ m | .#. | "^" ] ,,
-                o "~" -> u || _ ð ,,
-                "~" -> i || [ a | e ] "^" ð _ ,,
-                "-" -> u || [ a | e ] "^" ð _ ,,
-                "~" -> u || o "^" ð _ ,,
-                "-" -> i || o "^" ð _ ,,
-                "~" -> e || [ a | e ] "^" d _ ,,
-                "~" -> o || o "^" d _ ,,
-                "-" -> u || [ a | e ] "^" d _ [ m | .#. | "^" ] ,,
-                "-" -> i || [ a | e ] "^" d _ ð ,,
-                "-" -> i || o "^" d _ [ m | .#. | "^" ] ,,
-                "-" -> u || o "^" d _ ð ,,
-                a "`" -> e || _ [ .#. | r | d | "^" ] ,,
-                e "`" -> i || _ [ .#. | r | d | "^" ] ,,
-                o "`" -> u || _ [ .#. | r | d | "^" ] ,,
-                [ a | e ] "`" "~" -> o || _ ,,
-                o "`" "~" -> e || _ ;
+define VCorrect [ a | e ] -> u || _ X* "~" [ m | .#. | "^" ] ,,
+                [ a | e ] -> i || _ X* "~" ð ,,
+                o -> i || _ X* "~" [ m | .#. | "^" ] ,,
+                o -> u || _ X* "~" ð ,,
+                "~" -> i || [ a | e ] X* "^" ð _ ,,
+                "-" -> u || [ a | e ] X* "^" ð _ ,,
+                "~" -> u || o X* "^" ð _ ,,
+                "-" -> i || o X* "^" ð _ ,,
+                "~" -> e || [ a | e ] X* "^" d _ ,,
+                "~" -> o || o X* "^" d _ ,,
+                "-" -> u || [ a | e ] X* "^" d _ [ m | .#. | "^" ] ,,
+                "-" -> i || [ a | e ] X* "^" d _ ð ,,
+                "-" -> i || o X* "^" d _ [ m | .#. | "^" ] ,,
+                "-" -> u || o X* "^" d _ ð ,,
+                a -> e || _ X* "`" [ .#. | r | d | "^" ] ,,
+                e -> i || _ X* "`" [ .#. | r | d | "^" ] ,,
+                o -> u || _ X* "`" [ .#. | r | d | "^" ] ,,
+                [ a | e ] -> o || _ X* "`" "~" ,,
+                o -> e || _ X* "`" "~" ;
 
 # cleanup: remove morpheme boundaries
 
@@ -60,6 +76,6 @@ define Cleanup "^" -> 0 ,,
 
 read lexc thudiniska.lexc
 define Lexicon
-define Grammar Lexicon .o. VChange .o. RAdd .o. UDrop .o. VCorrect .o. Cleanup ;
+define Grammar Lexicon .o. GAdj .o. VChange .o. RAdd .o. IAdd .o. UDrop .o. VCorrect .o. Cleanup ;
 
 regex Grammar ;
