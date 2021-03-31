@@ -21,7 +21,7 @@ define VChange i a -> a || _ C* "*" ,,
                o -> e || _ C* "*" ,,
                u -> i || _ C* "*" ;
 
-# r addition: adds an r on the occurance of two consecutive vowels. 
+# r addition: adds an r on the occurance of two consecutive vowels.
 
 define RAdd i -> r i || [ i | ú | é ] "^" _ ;
 
@@ -31,9 +31,9 @@ define UDrop u m -> m || [ u | á | í | ó ] "^" _ ;
 
 # vowel correction: correct the last vowel in a verb.
 
-define VCorrect [ a | e ] "~" -> u || _ [ m | .#. ] ,,
+define VCorrect [ a | e ] "~" -> u || _ [ m | .#. | "^" ] ,,
                 [ a | e ] "~" -> i || _ ð ,,
-                o "~" -> i || _ [ m | .#. ] ,,
+                o "~" -> i || _ [ m | .#. | "^" ] ,,
                 o "~" -> u || _ ð ,,
                 "~" -> i || [ a | e ] "^" ð _ ,,
                 "-" -> u || [ a | e ] "^" ð _ ,,
@@ -41,15 +41,22 @@ define VCorrect [ a | e ] "~" -> u || _ [ m | .#. ] ,,
                 "-" -> i || o "^" ð _ ,,
                 "~" -> e || [ a | e ] "^" d _ ,,
                 "~" -> o || o "^" d _ ,,
-                "-" -> u || [ a | e ] "^" d _ [ m | .#. ] ,,
+                "-" -> u || [ a | e ] "^" d _ [ m | .#. | "^" ] ,,
                 "-" -> i || [ a | e ] "^" d _ ð ,,
-                "-" -> i || o "^" d _ [ m | .#. ] ,,
-                "-" -> u || o "^" d _ ð ;
+                "-" -> i || o "^" d _ [ m | .#. | "^" ] ,,
+                "-" -> u || o "^" d _ ð ,,
+                a "`" -> e || _ [ .#. | r | d | "^" ] ,,
+                e "`" -> i || _ [ .#. | r | d | "^" ] ,,
+                o "`" -> u || _ [ .#. | r | d | "^" ] ,,
+                [ a | e ] "`" "~" -> o || _ ,,
+                o "`" "~" -> e || _ ;
 
 # cleanup: remove morpheme boundaries
 
 define Cleanup "^" -> 0 ,,
-               "*" -> 0 ;
+               "*" -> 0 ,,
+               "~" -> 0 ,,
+               "`" -> 0 ;
 
 read lexc thudiniska.lexc
 define Lexicon

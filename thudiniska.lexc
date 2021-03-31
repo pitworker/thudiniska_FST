@@ -1,11 +1,18 @@
 !!!thudiniska.lexc!!!
 
 Multichar_Symbols +SGNOM +SGACC +SGDAT +SGGEN +PLNOM +PLACC +PLDAT +PLGEN
+                  +PRS1SG +PRS2SG +PRS3SG +PRS1PL +PRS2PL +PRS3PL
+                  +PST1SG +PST2SG +PST3SG +PST1PL +PST2PL +PST3PL
+                  +FUT1SG +FUT2SG +FUT3SG +FUT1PL +FUT2PL +FUT3PL
+                  +IMP1SG +IMP2SG +IMP3SG +IMP1PL +IMP2PL +IMP3PL
+                  +ACTV +PASS +MIDL
+                  PST+ IPFV+ NEG+
 
 LEXICON Root
 
 Noun;
 Verb;
+Vprfx;
 
 LEXICON Noun
 
@@ -32,7 +39,7 @@ LEXICON Ninfl
 +PLNOM:*        #;
 +PLACC:*        #;
 +PLDAT:^um      #;
-+PLGEN:^a       #; 
++PLGEN:^a       #;
 
 LEXICON Verb
 
@@ -48,21 +55,39 @@ fáelae  Vinfl;
 
 LEXICON Vinfl
 
-+PRS1SG:0       #;
-+PRS2SG:^r      #;
-+PRS3SG:^d      #;
-+PRS1PL:~m      #;
-+PRS2PL:~ð      #;
-+PRS3PL:~       #;
-+PST1SG:^ð~     #;
-+PST2SG:^ð~r    #;
-+PST3SG:^ð~d    #;
-+PST1PL:^ð-m    #;
-+PST2PL:^ð~ð    #;
-+PST3PL:^ð-     #;
-+FUT1SG:^d~     #;
-+FUT2SG:^d~r    #;
-+FUT3SG:^d~d    #;
-+FUT1PL:^d-m    #;
-+FUT2PL:^d-ð    #;
-+FUT3PL:^d-     #;
++PRS1SG:0       Vsufx;
++PRS2SG:^r      Vsufx;
++PRS3SG:^d      Vsufx;
++PRS1PL:~m      Vsufx;
++PRS2PL:~ð      Vsufx;
++PRS3PL:~       Vsufx;
++PST1SG:^ð~     Vsufx;
++PST2SG:^ð~r    Vsufx;
++PST3SG:^ð~d    Vsufx;
++PST1PL:^ð-m    Vsufx;
++PST2PL:^ð~ð    Vsufx;
++PST3PL:^ð-     Vsufx;
++FUT1SG:^d~     Vsufx;
++FUT2SG:^d~r    Vsufx;
++FUT3SG:^d~d    Vsufx;
++FUT1PL:^d-m    Vsufx;
++FUT2PL:^d-ð    Vsufx;
++FUT3PL:^d-     Vsufx;
++IMP1SG:`       Vsufx;
++IMP2SG:`r      Vsufx;
++IMP3SG:`d      Vsufx;
++IMP1PL:`~m     Vsufx;
++IMP2PL:`~ð     Vsufx;
++IMP3PL:`~      Vsufx;
+
+LEXICON Vsufx
+
++ACTV:0         #;
++PASS:^g        #;
++MIDL:^s        #;
+
+LEXICON Vprfx
+
+PST+:gu^        Verb;
+IPFV+:fu^       Verb;
+NEG+:nu^        Verb;
