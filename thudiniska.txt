@@ -1,6 +1,6 @@
 longi, long[SG.DAT]
 leng, long[PL.NOM]/long[PL.ACC]
-tírar, tír[SG.GEN]
+tírs, tír[SG.GEN]
 múrum, múr[PL.DAT]
 múrir, múr[PL.NOM]/múr[PL.ACC]
 cáerangs, cáerang[SG.GEN]
@@ -8,18 +8,18 @@ benir, ben[PL.NOM]/ben[PL.ACC]
 benar, ben[SG.GEN]
 skorpum, skorpu[PL.DAT]
 báhrsis, báhrs[SG.GEN]
-klóm, klo[PL.DAT]
+klóm, kló[PL.DAT]
 bleðs, bleð[SG.GEN]
 bleþ, bláþ[PL.NOM]/bláþ[PL.ACC]
 cúri, cú[SG.DAT]
 cúrir, cú[PL.NOM]/cú[PL.ACC]
 cúum, cú[PL.DAT]
 atag, ata[PRS.1SG.PASS]
-fufáelaeðid, [PRFV]fáelae[PRS.3SG.ACTV]
+fufáelaed, [IPFV]fáelae[PRS.3SG.ACTV]
 rulégadoduðs, [SUBJ]légado[FUT.2PL.MIDL]
 gubiaðadum, [previously]biaða[FUT.1PL.ACTV]
 nutigar, [NEG]tiga[PRS.2SG.ACTV]
-fudaleðu, [PRFV]dale[PST.3PL.ACTV]
+fudaleðu, [IPFV]dale[PST.3PL.ACTV]
 nuselgoð, [NEG]selge[IMP.2PL.ACTV]
 eþaoms, eþae[IMP.1PL.MIDL]
 ruakoður, [SUBJ]ako[PST.2SG.ACTV]
@@ -34,12 +34,12 @@ cnáimar, feminine genitive singular inflection for masculine word
 skorpuum, u should be dropped in -um for words ending in u
 cúm, u in -um should not be dropped for words ending in ú
 klóum, u in -um should be dropped for words ending in ó
-dalear, inflecting a noun like a verb
+dalear, inflecting a verb like a noun
 bárhrss, i must be added before -s when noun ends in s
 bin, masculine/neuter nom/acc plural inflection applied to a feminine noun
 tíre, -e is not an inflected noun ending
-futigadu, Perfective aspect does not exist on future tense in Þúdiniska
-fuselgom, perfective aspect does not exist on imperative mood in Þúdiniska
+futigadu, imperfective aspect does not exist on future tense in Þúdiniska
+fuselgom, imperfective aspect does not exist on imperative mood in Þúdiniska
 rulégadurs, both subjunctive and imperative moods applied to same verb
 akorsg, passive and middle voices applied to same verb
 fáelaodi, -o verb tense conjugation applied to -e verb
