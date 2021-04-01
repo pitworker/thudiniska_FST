@@ -1,0 +1,52 @@
+longi, long[SG.DAT]
+leng, long[PL.NOM]/long[PL.ACC]
+tírar, tír[SG.GEN]
+múrum, múr[PL.DAT]
+múrir, múr[PL.NOM]/múr[PL.ACC]
+cáerangs, cáerang[SG.GEN]
+benir, ben[PL.NOM]/ben[PL.ACC]
+benar, ben[SG.GEN]
+skorpum, skorpu[PL.DAT]
+báhrsis, báhrs[SG.GEN]
+klóm, klo[PL.DAT]
+bleðs, bleð[SG.GEN]
+bleþ, bláþ[PL.NOM]/bláþ[PL.ACC]
+cúri, cú[SG.DAT]
+cúrir, cú[PL.NOM]/cú[PL.ACC]
+cúum, cú[PL.DAT]
+atag, ata[PRS.1SG.PASS]
+fufáelaeðid, [PRFV]fáelae[PRS.3SG.ACTV]
+rulégadoduðs, [SUBJ]légado[FUT.2PL.MIDL]
+gubiaðadum, [previously]biaða[FUT.1PL.ACTV]
+nutigar, [NEG]tiga[PRS.2SG.ACTV]
+fudaleðu, [PRFV]dale[PST.3PL.ACTV]
+nuselgoð, [NEG]selge[IMP.2PL.ACTV]
+eþaoms, eþae[IMP.1PL.MIDL]
+ruakoður, [SUBJ]ako[PST.2SG.ACTV]
+fáelair, fáelae[IMP.2SG.ACTV]
+rubiaðiðs, [SUBJ]biaða[PRS.2PL.MIDL]
+eþaededg, eþae[FUT.3SG.PASS]
+nuataðum, [NEG]ata[PST.1PL.ACTV]
+nulégadododg, [NEG]légado[FUT.3SG.PASS]
+
+lung, incorrect vowel change for long
+cnáimar, feminine genitive singular inflection for masculine word
+skorpuum, u should be dropped in -um for words ending in u
+cúm, u in -um should not be dropped for words ending in ú
+klóum, u in -um should be dropped for words ending in ó
+dalear, inflecting a noun like a verb
+bárhrss, i must be added before -s when noun ends in s
+bin, masculine/neuter nom/acc plural inflection applied to a feminine noun
+tíre, -e is not an inflected noun ending
+futigadu, Perfective aspect does not exist on future tense in Þúdiniska
+fuselgom, perfective aspect does not exist on imperative mood in Þúdiniska
+rulégadurs, both subjunctive and imperative moods applied to same verb
+akorsg, passive and middle voices applied to same verb
+fáelaodi, -o verb tense conjugation applied to -e verb
+gueþaeði, past-future prefix applied to verb with non-future tense conjugation
+gubiaðum, past-future prefix applied to verb with non-future tense conjugation
+guselgo, past-future prefix not allowed with imperative mood
+femedum, noun inflected as a verb (there is a process to do this in Þúdiniska, but the resulting verb must be in middle voice,
+                                   and the process is not addressed in this transducer)
+fucnáimi, imperfective aspect prefix applied to a noun
+klóg, passive voice suffix applied to a noun
